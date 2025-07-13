@@ -15,7 +15,17 @@ jobs:
         with:
           node-version: '16.x'
       - run: npm ci
-      - run: npx eslint "web/src/**/*.{js,ts,tsx}" --max-warnings=0
-      - run: npm test
-      - run: npx playwright install --with-deps
+      - run: npm run lint
+      - run: npm run build
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+      - run: npm ci
+      - run: npm run test:js
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
       - run: npm run test:e2e
