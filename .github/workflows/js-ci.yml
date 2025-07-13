@@ -1,0 +1,21 @@
+name: JS CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm ci
+      - run: npx eslint "web/src/**/*.{js,ts,tsx}" --max-warnings=0
+      - run: npm test
+      - run: npx playwright install --with-deps
+      - run: npm run test:e2e

@@ -43,3 +43,11 @@ npm start
 
 ## Docs
 See `docs/` for architecture and mapping details.
+
+### Testing & CI
+
+**Install dependencies**  
+```bash
+npm ci
+pip install -r requirements.txt
+```
