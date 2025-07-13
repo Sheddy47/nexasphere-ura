@@ -11,3 +11,8 @@ def test_constraint_aware_agent():
     agent = ConstraintAwareMaterialDesignerAgent(1, cost_limit=10)
     result = agent.design_with_constraints()
     assert result is not None or result is None  # Accepts both for stub
+
+def test_cost_model_scaling():
+    agent = ConstraintAwareMaterialDesignerAgent(radius=5, cost_limit=20)
+    lattice = [...]
+    assert agent.estimate_cost(lattice) == pytest.approx(expected, rel=0.1)
