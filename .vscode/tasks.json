@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "npm install (web)",
+			"command": "npm install",
+			"args": [],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		}
+	]
+}
