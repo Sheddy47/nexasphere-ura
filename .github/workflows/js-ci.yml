@@ -15,7 +15,8 @@ jobs:
         with:
           node-version: '16.x'
       - run: npm ci
-      - run: npx eslint "web/src/**/*.{js,ts,tsx}" --max-warnings=0
+      - name: Lint with ESLint
+        run: npm run lint
       - run: npm test
       - run: npx playwright install --with-deps
       - run: npm run test:e2e
