@@ -8,7 +8,7 @@ git rev-parse --is-inside-work-tree 2>/dev/null || git init
 if git remote | grep -q '^origin$'; then
   git remote remove origin
 fi
-git remote add origin https://github.com/your-org/nexasphere-ura.git
+git remote add origin https://github.com/Sheddy47/nexasphere-ura.git
 
 git add .
 git commit -m "Initial commit"

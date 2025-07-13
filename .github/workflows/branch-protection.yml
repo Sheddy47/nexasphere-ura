@@ -1,0 +1,21 @@
+name: Branch Protection
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  branch-protection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce branch protection rules
+        uses: peter-evans/create-or-update-protection-rule@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          required_status_checks: '["Python CI", "JS CI", "E2E Tests"]'
+          required_approving_review_count: 1
+          dismiss_stale_reviews: true
+          enforce_admins: true
+          require_signed_commits: false

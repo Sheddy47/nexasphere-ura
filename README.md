@@ -2,6 +2,21 @@
 
 End-to-end pipeline: Core geometry → Simulation agents → Interactive dashboard → Blueprint export.
 
+
+## Development
+
+### Pre-commit
+
+To enable consistent code formatting and linting, this project uses pre-commit hooks for Python and JavaScript/TypeScript:
+
+```bash
+pip install pre-commit
+pre-commit install
+pre-commit run --all-files
+```
+
+This will run Black and Flake8 on Python files in `src/`, and Prettier and ESLint on JS/TS/TSX files in `web/src/`.
+
 ## Getting Started
 
 ```bash
