@@ -18,9 +18,8 @@ jobs:
       - run: pip install -r requirements.txt
       - run: pip install -e .
       - name: Lint with flake8
-        run: |
-          pip install flake8
-          flake8 src/ --max-line-length=88 --count --show-source --statistics
-      - run: pytest --cov
+        run: flake8 src/ --max-line-length=88 --count --show-source --statistics
+      - name: Run pytest with coverage
+        run: pytest src/ --maxfail=1 --disable-warnings -q --cov=src
       - name: Check coverage threshold
         run: coverage report --fail-under=90
